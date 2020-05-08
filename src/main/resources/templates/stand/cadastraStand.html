@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<title>Cadastro de stands</title>
+</head>
+
+<body class="">
+	<a class="dropdown-item bg-dark shadow-lg p-2 mt-2"></a>
+	<h1
+		class="text-center h1-hover py-5 display-4 lead text-primary h6 shadow-lg">Cadastrar
+		stands:</h1>
+	<a class="dropdown-item bg-dark shadow-mt-0 p-2"></a>
+	<div class="container col-md-6 offset-3 mt-3">
+		<form th:object="${stand}" th:action="@{/stand/salvar}" method="POST">
+
+			<div class="card shadow-lg border-primary">
+				<div class="card-header text-center rounded bg-primary text-white">
+					<h4>Formulario de cadastro</h4>
+				</div>
+				<div class="card-body">
+
+					<label>Nome do stand: </label> <input type="text" name="nome"
+						th:field="*{stand_nome}" class="form-control mb-2"
+						placeholder="Digite o nome do stand"
+						title="Informe somente letras" /> <label>Stand do link de
+						apresentação: </label> <input th:field="*{stand_link_apresentacao}"
+						type="text" class="form-control mb-2"
+						placeholder="Digite o link da apresentação"
+						title="Digite somente letras: " /> <label>Link do chat: </label>
+					<input th:field="*{stand_link_chat}" type="text"
+						class="form-control mb-2" placeholder="Informar o link do chat"
+						title="Informe somente letras" /> <label>Link do status:</label>
+					<input th:field="*{stand_status}" type="text"
+						class="form-control mb-2" placeholder="Digite o link do status"
+						title="Informe somente letras" /> <label>Link da
+						logomarca:</label> <input th:field="*{stand_link_logomarca}" type="text"
+						class="form-control mb-3" placeholder="Digite o link da logomarca"
+						title="Informar somente letras" /> <label>Link da
+						logomarca:</label> <input th:field="*{stand_link_logomarca}" type="text"
+						class="form-control mb-3" placeholder="Digite o link da logomarca"
+						title="Informar somente letras" /> <label>Empresa:</label><select
+						class="form-control mb-3" id="inputChave" th:field="*{empresa}"
+						required="required">
+						<option value="">Selecione</option>
+						<option th:each="empresa : ${empresas}"
+							th:value="${empresa.empresa_id}"
+							th:text="${empresa.empresa_nome}"></option>
+					</select>
+					
+					<button type="submit"
+						class="btn btn-block btn-lg btn-rounded btn-primary "
+						title="Clique para gravar">Adicionar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+
+</body>
+
+<style>
+body {
+	font-family: "14";
+	src: formato url("Concert One.eot?")(" 
+  eot "), formato url (" Concert One.woff ") (" woff "), formato url("
+		Concert One.ttf ")(" truetype");
+}
+
+</style>
+
+</html>
